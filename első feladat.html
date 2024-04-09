@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sum of array singles</title>
+</head>
+<body>
+<div>
+    <h2>Sum of array singles</h2>
+    <p>Adja meg a számsorozatot, vesszővel elválasztva:</p>
+    <input type="text" id="inputArray">
+    <button onclick="calculate()">Számol</button>
+    <p id="result"></p>
+</div>
+
+<script>
+function calculate() {
+    var inputArray = document.getElementById('inputArray').value;
+    var numbers = inputArray.split(',').map(Number);
+    var result = repeats(numbers);
+    document.getElementById('result').innerText = "Eredmény: " + result;
+}
+
+function repeats(arr) {
+    var singles = arr.filter(function(num) {
+        return arr.indexOf(num) === arr.lastIndexOf(num);
+    });
+    return singles.reduce(function(acc, val) {
+        return acc + val;
+    }, 0);
+}
+</script>
+</body>
+</html>

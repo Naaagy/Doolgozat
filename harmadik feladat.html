@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert dashes</title>
+</head>
+<body>
+<div>
+    <h2>Insert dashes</h2>
+    <p>Adja meg a számot:</p>
+    <input type="text" id="inputNumber">
+    <button onclick="insertDashes()">Kötőjelek beszúrása</button>
+    <p id="result"></p>
+</div>
+
+<script>
+function insertDashes() {
+    var inputNumber = document.getElementById('inputNumber').value;
+    var dashedNumber = insertDashesBetweenOddDigits(inputNumber);
+    document.getElementById('result').innerText = "Eredmény: " + dashedNumber;
+}
+
+function insertDashesBetweenOddDigits(num) {
+    var numStr = num.toString();
+    var dashedStr = numStr[0];
+    for (var i = 1; i < numStr.length; i++) {
+        if (parseInt(numStr[i - 1]) % 2 !== 0 && parseInt(numStr[i]) % 2 !== 0) {
+            dashedStr += '-' + numStr[i];
+        } else {
+            dashedStr += numStr[i];
+        }
+    }
+    return dashedStr;
+}
+</script>
+</body>
+</html>

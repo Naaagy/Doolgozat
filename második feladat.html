@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sort Arrays (Ignoring Case)</title>
+</head>
+<body>
+<div>
+    <h2>Sort Arrays (Ignoring Case)</h2>
+    <p>Adja meg a tömböt, vesszővel elválasztva:</p>
+    <input type="text" id="inputArray">
+    <button onclick="sortAndDisplay()">Rendezés</button>
+    <p id="result"></p>
+</div>
+
+<script>
+function sortAndDisplay() {
+    var inputArray = document.getElementById('inputArray').value;
+    var array = inputArray.split(',');
+    var sortedArray = sortArraysIgnoreCase(array);
+    document.getElementById('result').innerText = "Rendezett tömb: " + sortedArray.join(', ');
+}
+
+function sortArraysIgnoreCase(arr) {
+    return arr.sort(function(a, b) {
+        return a.localeCompare(b);
+    });
+}
+</script>
+</body>
+</html>
